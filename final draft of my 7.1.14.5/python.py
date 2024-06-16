@@ -7,7 +7,6 @@ def display_score():
     window.blit(score_surf,sr)
     print(ct)
     return ct
-
 py.init()
 py.mixer.init()
 i = 1
@@ -20,7 +19,6 @@ bhu = py.mixer.Sound('bhu.mp3')
 kya = py.mixer.Sound('kya.mp3')
 clock = py.time.Clock()
 window = py.display.set_mode((800,500))
-
 py.display.set_caption(' Beauty Of Failure!')
 font = py.font.Font(None, 32)
 text = font.render('my first game', True,(0,255,0))
@@ -52,9 +50,6 @@ messr = mess.get_rect(center = (390,90))
 obst  = py.USEREVENT + 1
 i = 1
 py.time.set_timer(obst,900)
-
-
-
 while a:
     for event in py.event.get():
         if event.type == py.KEYDOWN:
@@ -73,8 +68,7 @@ while a:
             if event.key == py.K_y:
                 kya.play()          
         if event.type == py.QUIT:
-               a = False
-        
+               a = False      
         if ga:             
             if event.type == py.MOUSEBUTTONDOWN:
                 if plr2.collidepoint(event.pos) and plr2.bottom >= 430:
@@ -84,7 +78,6 @@ while a:
                     tullu.play()
                     grv =-23
         else:        
-            
             if event.type == py.KEYDOWN:
                 if event.key == py.K_SPACE:
                     ga = True
@@ -92,14 +85,12 @@ while a:
                     st = int(py.time.get_ticks()/1000)
             if event.type == obst:
                 if ga:
-                    print('test')
-              
+                    print('test')              
     if ga:               
         window.blit(sky,(0,0))
         window.blit(grd,(0,430))
         window.blit(plr,plr2)
         window.blit(kty,kty2)
-        
         src = display_score()
         kty2.x -= 5
         if kty2.x < -100:
@@ -108,30 +99,19 @@ while a:
         plr2.y += grv
         if plr2.bottom > 430:
             plr2.bottom = 430
-    
-
-    
     if kty2.colliderect(plr2):
-       
        ga = False
        window.fill((34, 105, 212))
        window.blit(sunil,sunilr)
        window.blit(textgo,(250,30))
-        
        window.blit(gg,ggr)
        window.blit(vs,vsrect)
        window.blit(mess,messr)
        sm = font.render(f'YOUR  SCORE : "{src}" :-)',False,(0,0,0))
        smr = sm.get_rect(center = (370,450))
-     
        if src == 0:
             window.blit(mess,messr)
-       
        else:
             window.blit(sm,smr)
-
-
-    
-           
     clock.tick(60)
     py.display.update()
