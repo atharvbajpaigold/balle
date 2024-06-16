@@ -56,18 +56,6 @@ py.time.set_timer(obst,900)
 
 
 while a:
-    
-
-
-    
-    
-    
-    
-    
-          
-        
-        
-    
     for event in py.event.get():
         if event.type == py.KEYDOWN:
             if event.key == py.K_1:
